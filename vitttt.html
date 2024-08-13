@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Disaster Response Coordination</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #007bff;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        /* Hero Banner Styles */
+        .hero-banner {
+    background: url('img.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    padding: 100px 20px; /* Adjust padding as needed */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Optional: adds a shadow to text for better readability */
+}
+        
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            background-color: #0056b3;
+        }
+
+        .weather-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .weather-icon {
+            font-size: 50px;
+        }
+
+        .weather-info {
+            margin-left: 10px;
+        }
+
+        .weather-info .temperature {
+            font-size: 32px;
+        }
+
+        .weather-info .conditions {
+            font-size: 16px;
+        }
+
+        .alert-feed .alert-item {
+            background-color: #ffcccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .map, .chat-box {
+            height: 300px;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #f1f1f1;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .footer-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+            transition: text-decoration 0.3s ease;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-links a:focus {
+            text-decoration: underline;
+        }
+
+        /* SOS Notification Styles */
+        .sos-notification {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .weather-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .weather-icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Disaster Response</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="weathe.html#weather-forecast">Weather Forecast</a></li>
+                <li><a href="#safe-places">Safe Places</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Hero Banner -->
+        <section id="home" class="hero-banner section">
+            <h1>BE SAFE AND STAY SAFE</h1>
+            <p>Real-time weather forecasts and emergency alerts to ensure your safety.</p>
+            <div class="cta-buttons"></div>
+        </section>
+
+        <!-- Weather Forecast -->
+        <section id="weather-forecast" class="weather-forecast section">
+            <h2>CURRENT WEATHER</h2>
+            <div class="weather-details">
+                <div id="weather-icon" class="weather-icon">🌞/🌧️</div>
+                <div class="weather-info">
+                    <span id="conditions" class="conditions">CLICK BELOW BUTTON TO CHECK CURRENT WEATHER</span>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <span style="font-size: 24px;">&#8659;</span>
+                    </div>
+                </div>
+                <a href="weathe.html" class="button">weather</a>
+            </div>
+        </section>
+
+        <!-- Safe Places Map -->
+        <section id="safe-places" class="safe-places section">
+            <h2>Safe Places Map</h2>
+            <div class="map">
+                <!-- Placeholder for the map -->
+                <div id="map" class="map"></div>
+            </div>
+            <button id="map-button" class="button">Open Safe Places</button>
+        </section>
+
+        <!-- Emergency Chat -->
+        <section id="offline-chat" class="offline-chat section">
+            <h2>Emergency Chat</h2>
+            <p>Accessible to designated users only.</p>
+            <a href="sosform.html" class="button">CHAT</a>
+        </section>
+
+        <!-- Instructions -->
+        <section id="instructions" class="instructions section">
+            <h2>Instructions</h2>
+            <p>Click the button below for detailed instructions on disaster management and safety protocols.</p>
+            <a href="instruction.html" class="button">Instructions</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Help/FAQ</a>
+        </div>
+        <div class="contact-info">
+            <p>Email: teckthinkerzz07@gmail.com</p>
+            <p>Follow us:
+                <a href="https://www.facebook.com/chennairescueteam/">Facebook</a> |
+                <a href="https://x.com/chennaicares">X</a> |
+                <a href="#">Instagram</a>
+            </p>
+        </div>
+        <div class="footer-disclaimer">
+            <p>Disclaimer: Information about the accuracy of forecasts and alerts.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+            const city = 'London'; // Change to the city of your choice
+
+            // Function to fetch weather data
+            async function fetchWeather() {
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+                    const data = await response.json();
+                    updateWeather(data);
+                    checkWeatherForSOS(data);
+                } catch (error) {
+                    console.error('Error fetching weather data:', error);
+                }
+            }
+
+            // Function to update the weather forecast section
+            function updateWeather(data) {
+                const temperature = data.main.temp;
+                const conditions = data.weather[0].description;
+                const weatherIcon = data.weather[0].icon;
+                document.getElementById('weather-icon').textContent = `🌡️ ${temperature}°C`;
+                document.getElementById('conditions').textContent = `Current Conditions: ${conditions}`;
+            }
+
+            // Function to check weather conditions for SOS alerts
+            function checkWeatherForSOS(data) {
+                const isCyclone = data.wind.speed > 100; // Cyclone threshold
+                const isHeavyRain = data.rain && data.rain['1h'] > 50; // Heavy rain threshold in mm
+
+                if (isCyclone || isHeavyRain) {
+                    sendSOSAlert(); // Automatically send SOS alert
+                }
+            }
+
+            // Function to handle SOS alert
+            function sendSOSAlert() {
+                alert('SOS alert: Cyclone or heavy rain detected!');
+                document.getElementById('sos-status').textContent = 'Status: SOS alert sent';
+
+                const alertFeed = document.getElementById('alert-feed');
+                const alertItem = document.createElement('div');
+                alertItem.classList.add('alert-item');
+                alertItem.textContent = 'Cyclone or heavy rain detected - SOS alert sent!';
+                alertFeed.appendChild(alertItem);
+
+                const sosNotification = document.getElementById('sos-notification');
+                sosNotification.style.display = 'block';
+                setTimeout(() => {
+                    sosNotification.style.display = 'none';
+                }, 3000); // Hide notification after 3 seconds
+            }
+
+            // Function to navigate to the map page
+            function navigateToMap() {
+                window.location.href = 'map.html'; // Replace with the URL of the map page
+            }
+
+            // Function to navigate to the weather details page
+            function navigateToWeatherDetails() {
+                window.location.href = 'weathe.html'; // Replace with the URL of the weather details page
+            }
+
+            // Event listener for map navigation button
+            document.getElementById('map-button').addEventListener('click', navigateToMap);
+
+            // Event listener for weather details button
+            document.getElementById('weather-button').addEventListener('click', navigateToWeatherDetails);
+
+            // Event listener for SOS alert button
+            document.getElementById('sos-button').addEventListener('click', sendSOSAlert);
+
+            // Fetch weather data on page load
+            fetchWeather();
+        });
+    </script>
+</body>
+</html>

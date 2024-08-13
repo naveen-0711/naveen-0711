@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Disaster Management App</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k6S4Ujrzy0F7HbDjHRGhhAFmIu9+7+FfB9ZqvvZT3K1UlFiQyzAvrbZkkHEsm3B/wrc3E+X9K/+aA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-exclamation-triangle"></i> SOS Disaster Management App</h1>
+    </header>
+    <main>
+        <section id="sos-section">
+            <h2>Send SOS Alert</h2>
+            <form id="sos-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send SOS</button>
+                <button type="reset"><i class="fas fa-undo"></i> Reset</button>
+            </form>
+        </section>
+        <section id="weather-section">
+            <h2>Current Weather</h2>
+            <div id="weather-details">
+                <div id="weather-icon"></div>
+                <div id="temperature"></div>
+                <div id="conditions"></div>
+            </div>
+        </section>
+        <section id="updates-section">
+            <h2>Real-Time Updates</h2>
+            <ul id="updates-list">
+                <!-- Real-time updates will be appended here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Disaster Management System</p>
+    </footer>
+    <div id="toast">SOS Alert Sent Successfully!</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="j.js"></script>
+</body>
+</html>

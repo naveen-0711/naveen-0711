@@ -1,0 +1,19 @@
+#map {
+    height: 500px; /* Adjust height as needed */
+    width: 100%;   /* Full width */
+}
+
+.controls {
+    margin: 10px;
+    text-align: center;
+}
+
+#locationInput {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+}
